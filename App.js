@@ -3,28 +3,28 @@ import {
   StyleSheet,
   Text,
   View,
-  Navigator,
   TouchableHighlight,
   TouchableOpacity,
-  Platform
+  Platform,
+  Navigator,
 } from 'react-native';
 
-//import SQLite from 'react-native-sqlite-storage';
+import RouteList from "./lib/scenes/RouteList";
 
-class NavButton extends React.Component {
+class Home extends Component {
   render() {
     return (
       <TouchableHighlight
-        style={styles.button}
-        underlayColor="#B5B5B5"
-        onPress={this.props.onPress}>
-        <Text style={styles.buttonText}>{this.props.text}</Text>
+        onPress={() => {
+          this.props.navigator.push(routes[1]);
+        }}>
+        <Text>Routes</Text>
       </TouchableHighlight>
-    );
+    )
   }
 }
 
-var NavigationBarRouteMapper = {
+const NavigationBarRouteMapper = {
   LeftButton: function(route, navigator, index, navState) {
     if (index === 0) {
       return null;
@@ -35,7 +35,7 @@ var NavigationBarRouteMapper = {
         onPress={navigator.pop}
         style={styles.navBarLeftButton}>
         <Text style={[styles.navBarText, styles.navBarButtonText]}>
-          {previousRoute.title}
+          &lt; {previousRoute.title}
         </Text>
       </TouchableOpacity>
     );
@@ -54,9 +54,22 @@ var NavigationBarRouteMapper = {
   },
 };
 
+class NavButton extends Component {
+  render() {
+    return (
+      <TouchableHighlight
+        style={styles.button}
+        underlayColor="#B5B5B5"
+        onPress={this.props.onPress}>
+        <Text style={styles.buttonText}>{this.props.text}</Text>
+      </TouchableHighlight>
+    );
+  }
+}
+
 const routes = [
-  {title: 'Home', index: 0},
-  {title: 'Nearby Stops', index: 1},
+  {title: 'Home', scene: 'Home', index: 0},
+  {title: 'Routes', scene: 'RouteList', index: 1},
 ];
 
 export default class App extends Component {
@@ -65,16 +78,13 @@ export default class App extends Component {
       <Navigator
         style={styles.container}
         initialRoute={routes[0]}
-        renderScene={(route, navigator) =>
-          <TouchableHighlight
-            onPress={() => {
-              if (route.index === 0) {
-                navigator.push(routes[1]);
-              }
-            }}>
-            <Text>Hello {route.title}!</Text>
-          </TouchableHighlight>
-        }
+        renderScene={(route, navigator) => {
+          if (route.title === 'Home') {
+            return <Home navigator={navigator} />
+          } else if (route.title === 'Routes') {
+            return <RouteList navigator={navigator} />
+          }
+        }}
         navigationBar={
           <Navigator.NavigationBar
             routeMapper={NavigationBarRouteMapper}
@@ -90,14 +100,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5FCFF',
-    paddingTop: Platform.OS === 'ios' ? 100 : 70,
+    paddingTop: Platform.OS === 'ios' ? 65 : 35,
   },
-  messageText: {
-    fontSize: 17,
-    fontWeight: '500',
-    padding: 15,
-    marginTop: 50,
-    marginLeft: 15,
+  scene: {
+    flex: 1,
+    paddingTop: 20,
+    backgroundColor: '#EAEAEA',
   },
   button: {
     backgroundColor: 'white',
@@ -129,11 +137,6 @@ const styles = StyleSheet.create({
   },
   navBarButtonText: {
     color: '#5890FF',
-  },
-  scene: {
-    flex: 1,
-    paddingTop: 20,
-    backgroundColor: '#EAEAEA',
   },
 });
 
