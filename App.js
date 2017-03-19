@@ -9,17 +9,36 @@ import {
   Navigator,
 } from 'react-native';
 
-import RouteList from "./lib/scenes/RouteList";
+import RouteList from './lib/scenes/RouteList';
+import Route from './lib/scenes/Route';
+import Stop from './lib/scenes/Stop';
 
 class Home extends Component {
   render() {
     return (
-      <TouchableHighlight
-        onPress={() => {
-          this.props.navigator.push(routes[1]);
-        }}>
-        <Text>Routes</Text>
-      </TouchableHighlight>
+      <View>
+        <TouchableHighlight
+          style={styles.homeButton}
+          onPress={() => {
+            this.props.navigator.push(routes[1]);
+          }}>
+          <Text>Routes</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={styles.homeButton}
+          onPress={() => {
+            this.props.navigator.push(routes[2]);
+          }}>
+          <Text>Route</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={styles.homeButton}
+          onPress={() => {
+            this.props.navigator.push(routes[3]);
+          }}>
+          <Text>Stop</Text>
+        </TouchableHighlight>
+      </View>
     )
   }
 }
@@ -70,6 +89,8 @@ class NavButton extends Component {
 const routes = [
   {title: 'Home', scene: 'Home', index: 0},
   {title: 'Routes', scene: 'RouteList', index: 1},
+  {title: 'Route', scene: 'Route', index: 1},
+  {title: 'Stop Schedule', scene: 'Stop', index: 1},
 ];
 
 export default class App extends Component {
@@ -81,8 +102,12 @@ export default class App extends Component {
         renderScene={(route, navigator) => {
           if (route.title === 'Home') {
             return <Home navigator={navigator} />
-          } else if (route.title === 'Routes') {
+          } else if (route.scene === 'RouteList') {
             return <RouteList navigator={navigator} />
+          } else if (route.scene === 'Route') {
+            return <Route navigator={navigator} />
+          } else if (route.scene === 'Stop') {
+            return <Stop navigator={navigator} />
           }
         }}
         navigationBar={
@@ -138,5 +163,11 @@ const styles = StyleSheet.create({
   navBarButtonText: {
     color: '#5890FF',
   },
+  homeButton: {
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ddd',
+  }
 });
 
