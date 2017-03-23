@@ -78,7 +78,6 @@ class NavButton extends Component {
     return (
       <TouchableHighlight
         style={styles.button}
-        underlayColor="#B5B5B5"
         onPress={this.props.onPress}>
         <Text style={styles.buttonText}>{this.props.text}</Text>
       </TouchableHighlight>
@@ -100,15 +99,15 @@ export default class App extends Component {
         style={styles.container}
         initialRoute={routes[0]}
         renderScene={(route, navigator) => {
-          // if (route.title === 'Home') {
-          //   return <Home navigator={navigator} />
-          // } else if (route.scene === 'RouteList') {
-          //   return <RouteList navigator={navigator} />
-          // } else if (route.scene === 'Route') {
-          //   return <Route navigator={navigator} />
-          // } else if (route.scene === 'Stop') {
+          if (route.title === 'Home') {
+            return <Home navigator={navigator} />
+          } else if (route.scene === 'RouteList') {
+            return <RouteList navigator={navigator} />
+          } else if (route.scene === 'Route') {
+            return <Route navigator={navigator} />
+          } else if (route.scene === 'Stop') {
             return <Stop navigator={navigator} />
-          // }
+          }
         }}
         navigationBar={
           <Navigator.NavigationBar
@@ -124,19 +123,18 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    //backgroundColor: '#F5FCFF',
+    backgroundColor: '#fff',
     paddingTop: Platform.OS === 'ios' ? 65 : 35,
   },
   scene: {
     flex: 1,
     paddingTop: 20,
-    backgroundColor: '#EAEAEA',
+    //backgroundColor: '#EAEAEA',
   },
   button: {
-    backgroundColor: 'white',
     padding: 15,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#CDCDCD',
   },
   buttonText: {
     fontSize: 17,
@@ -167,7 +165,7 @@ const styles = StyleSheet.create({
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ddd',
+    backgroundColor: '#FFF',
   }
 });
 
