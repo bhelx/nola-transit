@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     flex: 1,
     //backgroundColor: '#F5FCFF',
     backgroundColor: '#fff',
-    paddingTop: Platform.OS === 'ios' ? 65 : 35,
+    paddingTop: 65,
   },
   scene: {
     flex: 1,
