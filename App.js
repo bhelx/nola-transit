@@ -20,21 +20,21 @@ class Home extends Component {
         <TouchableHighlight
           style={styles.homeButton}
           onPress={() => {
-            this.props.navigator.push(routes[1]);
+            this.props.navigator.push({scene: 'RouteList', title: 'Routes'});
           }}>
           <Text>Routes</Text>
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.homeButton}
           onPress={() => {
-            this.props.navigator.push(routes[2]);
+            this.props.navigator.push({scene: 'Route', title: 'Route'});
           }}>
           <Text>Route</Text>
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.homeButton}
           onPress={() => {
-            this.props.navigator.push(routes[3]);
+            this.props.navigator.push({scene: 'Stop', title: 'Schedule'});
           }}>
           <Text>Stop</Text>
         </TouchableHighlight>
@@ -45,7 +45,7 @@ class Home extends Component {
 
 const NavigationBarRouteMapper = {
   LeftButton: function(route, navigator, index, navState) {
-    if (index === 0) {
+    if (route.scene === 'Home') {
       return null;
     }
     var previousRoute = navState.routeStack[index - 1];
@@ -85,21 +85,14 @@ class NavButton extends Component {
   }
 }
 
-const routes = [
-  {title: 'Home', scene: 'Home', index: 0},
-  {title: 'Routes', scene: 'RouteList', index: 1},
-  {title: 'Route', scene: 'Route', index: 1},
-  {title: 'Stop Schedule', scene: 'Stop', index: 1},
-];
-
 export default class App extends Component {
   render() {
     return (
       <Navigator
         style={styles.container}
-        initialRoute={routes[0]}
+        initialRoute={{scene: 'Home', title: 'Home'}}
         renderScene={(route, navigator) => {
-          if (route.title === 'Home') {
+          if (route.scene === 'Home') {
             return <Home navigator={navigator} />
           } else if (route.scene === 'RouteList') {
             return <RouteList navigator={navigator} />
