@@ -100,15 +100,15 @@ export default class App extends Component {
         style={styles.container}
         initialRoute={routes[0]}
         renderScene={(route, navigator) => {
-          if (route.title === 'Home') {
-            return <Home navigator={navigator} />
-          } else if (route.scene === 'RouteList') {
-            return <RouteList navigator={navigator} />
-          } else if (route.scene === 'Route') {
-            return <Route navigator={navigator} />
-          } else if (route.scene === 'Stop') {
+          // if (route.title === 'Home') {
+          //   return <Home navigator={navigator} />
+          // } else if (route.scene === 'RouteList') {
+          //   return <RouteList navigator={navigator} />
+          // } else if (route.scene === 'Route') {
+          //   return <Route navigator={navigator} />
+          // } else if (route.scene === 'Stop') {
             return <Stop navigator={navigator} />
-          }
+          // }
         }}
         navigationBar={
           <Navigator.NavigationBar
