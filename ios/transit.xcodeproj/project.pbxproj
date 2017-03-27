@@ -45,6 +45,7 @@
 		88C83C058E7E4B4AB8F95685 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F5E0D4832040E3A9612EF1 /* FontAwesome.ttf */; };
 		97ADF3CB42EC4C62A68FFC8C /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C457EE374EB14381BD18E314 /* Octicons.ttf */; };
 		ADFE7BC8B3514E7491FB7E6B /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C7E186D42314CE39A9DBAAF /* MaterialIcons.ttf */; };
+		B53041941E89B3ED00D3C5C0 /* www in Resources */ = {isa = PBXBuildFile; fileRef = B53041931E89B3ED00D3C5C0 /* www */; };
 		B552C60F1E732062005A1DD7 /* AIRGMSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = B552C5EE1E732062005A1DD7 /* AIRGMSMarker.m */; };
 		B552C6101E732062005A1DD7 /* AIRGoogleMap.m in Sources */ = {isa = PBXBuildFile; fileRef = B552C5F01E732062005A1DD7 /* AIRGoogleMap.m */; };
 		B552C6111E732062005A1DD7 /* AIRGoogleMapCallout.m in Sources */ = {isa = PBXBuildFile; fileRef = B552C5F21E732062005A1DD7 /* AIRGoogleMapCallout.m */; };
@@ -62,10 +63,12 @@
 		B552C61D1E732062005A1DD7 /* AIRGoogleMapURLTileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B552C60A1E732062005A1DD7 /* AIRGoogleMapURLTileManager.m */; };
 		B552C61E1E732062005A1DD7 /* DummyView.m in Sources */ = {isa = PBXBuildFile; fileRef = B552C60C1E732062005A1DD7 /* DummyView.m */; };
 		B552C61F1E732062005A1DD7 /* RCTConvert+GMSMapViewType.m in Sources */ = {isa = PBXBuildFile; fileRef = B552C60E1E732062005A1DD7 /* RCTConvert+GMSMapViewType.m */; };
+		B572425F1E8991C800877A23 /* SqliteModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B572425E1E8991C800877A23 /* SqliteModule.swift */; };
+		B572427E1E89930B00877A23 /* SqliteModuleBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B572427D1E89930B00877A23 /* SqliteModuleBridge.m */; };
 		C2213BF9C4294049872B7C9A /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6070B496E90F4F9C8E4D6DB9 /* libAirMaps.a */; };
 		C23EF1EBA0984A5991908FB0 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28ADD820D17F41F78B9068E4 /* Ionicons.ttf */; };
 		C969594348D5403499570E59 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06068F178DFB4BF8A5E32971 /* Foundation.ttf */; };
-		D11CBF09B9FAEC807CA5CA7B /* libPods-transit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBF2060705149B6109622D71 /* libPods-transit.a */; };
+		F69B367A6C33A00443C80AEA /* Pods_transit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FA83F8BA73B162E0975B27 /* Pods_transit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +312,7 @@
 		7C7E186D42314CE39A9DBAAF /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		B0A93E469DDC497FA2BF3ACF /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		B53041931E89B3ED00D3C5C0 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../www; sourceTree = "<group>"; };
 		B552C5ED1E732062005A1DD7 /* AIRGMSMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGMSMarker.h; sourceTree = "<group>"; };
 		B552C5EE1E732062005A1DD7 /* AIRGMSMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGMSMarker.m; sourceTree = "<group>"; };
 		B552C5EF1E732062005A1DD7 /* AIRGoogleMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMap.h; sourceTree = "<group>"; };
@@ -343,13 +347,16 @@
 		B552C60C1E732062005A1DD7 /* DummyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyView.m; sourceTree = "<group>"; };
 		B552C60D1E732062005A1DD7 /* RCTConvert+GMSMapViewType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+GMSMapViewType.h"; sourceTree = "<group>"; };
 		B552C60E1E732062005A1DD7 /* RCTConvert+GMSMapViewType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+GMSMapViewType.m"; sourceTree = "<group>"; };
+		B572425D1E8991C800877A23 /* transit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "transit-Bridging-Header.h"; sourceTree = "<group>"; };
+		B572425E1E8991C800877A23 /* SqliteModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteModule.swift; sourceTree = "<group>"; };
+		B572427D1E89930B00877A23 /* SqliteModuleBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteModuleBridge.m; sourceTree = "<group>"; };
+		C3FA83F8BA73B162E0975B27 /* Pods_transit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_transit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44351BC02584150D3B0EEFD /* Pods-transit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-transit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-transit/Pods-transit.debug.xcconfig"; sourceTree = "<group>"; };
 		C457EE374EB14381BD18E314 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		C84C4B43A5274DAABFEE961B /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		D338ECA7187D54535CB06CBF /* Pods-transit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-transit.release.xcconfig"; path = "Pods/Target Support Files/Pods-transit/Pods-transit.release.xcconfig"; sourceTree = "<group>"; };
 		FA377240D65E45B19D4B3807 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		FBB608A96DE742F5AD10A6A3 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		FBF2060705149B6109622D71 /* libPods-transit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-transit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,8 +384,8 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				C2213BF9C4294049872B7C9A /* libAirMaps.a in Frameworks */,
-				D11CBF09B9FAEC807CA5CA7B /* libPods-transit.a in Frameworks */,
 				5120F3B5D6294732B3F537DB /* libRNVectorIcons.a in Frameworks */,
+				F69B367A6C33A00443C80AEA /* Pods_transit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +494,7 @@
 		13B07FAE1A68108700A75B9A /* transit */ = {
 			isa = PBXGroup;
 			children = (
+				B53041931E89B3ED00D3C5C0 /* www */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -494,6 +502,9 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				B572425E1E8991C800877A23 /* SqliteModule.swift */,
+				B572425D1E8991C800877A23 /* transit-Bridging-Header.h */,
+				B572427D1E89930B00877A23 /* SqliteModuleBridge.m */,
 			);
 			name = transit;
 			sourceTree = "<group>";
@@ -674,7 +685,7 @@
 		D45480D93C69E5613FC5C1DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FBF2060705149B6109622D71 /* libPods-transit.a */,
+				C3FA83F8BA73B162E0975B27 /* Pods_transit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -772,6 +783,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 5W7NA9Z6JD;
+						LastSwiftMigration = 0820;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1071,6 +1083,7 @@
 				C969594348D5403499570E59 /* Foundation.ttf in Resources */,
 				C23EF1EBA0984A5991908FB0 /* Ionicons.ttf in Resources */,
 				2DA549CF1C5146F78AC26543 /* MaterialCommunityIcons.ttf in Resources */,
+				B53041941E89B3ED00D3C5C0 /* www in Resources */,
 				ADFE7BC8B3514E7491FB7E6B /* MaterialIcons.ttf in Resources */,
 				97ADF3CB42EC4C62A68FFC8C /* Octicons.ttf in Resources */,
 				16A6EE2349704112A070F85A /* SimpleLineIcons.ttf in Resources */,
@@ -1189,6 +1202,8 @@
 				B552C61D1E732062005A1DD7 /* AIRGoogleMapURLTileManager.m in Sources */,
 				B552C6141E732062005A1DD7 /* AIRGoogleMapCircleManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				B572425F1E8991C800877A23 /* SqliteModule.swift in Sources */,
+				B572427E1E89930B00877A23 /* SqliteModuleBridge.m in Sources */,
 				B552C61F1E732062005A1DD7 /* RCTConvert+GMSMapViewType.m in Sources */,
 				B552C6161E732062005A1DD7 /* AIRGoogleMapMarker.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
@@ -1254,6 +1269,7 @@
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1286,6 +1302,7 @@
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1317,6 +1334,7 @@
 			baseConfigurationReference = C44351BC02584150D3B0EEFD /* Pods-transit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 5W7NA9Z6JD;
@@ -1336,6 +1354,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = im.simst.nolatransit;
 				PRODUCT_NAME = transit;
+				SWIFT_OBJC_BRIDGING_HEADER = "transit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1345,6 +1366,7 @@
 			baseConfigurationReference = D338ECA7187D54535CB06CBF /* Pods-transit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5W7NA9Z6JD;
 				HEADER_SEARCH_PATHS = (
@@ -1363,6 +1385,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = im.simst.nolatransit;
 				PRODUCT_NAME = transit;
+				SWIFT_OBJC_BRIDGING_HEADER = "transit-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
