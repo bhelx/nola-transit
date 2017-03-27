@@ -2,24 +2,26 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '8.0'
+use_frameworks!
 
 target 'transit' do
-  pod 'React', path: '../node_modules/react-native', :subspecs => [
-    'Core',
-    'RCTActionSheet',
-    'RCTAnimation',
-    'RCTGeolocation',
-    'RCTImage',
-    'RCTLinkingIOS',
-    'RCTNetwork',
-    'RCTSettings',
-    'RCTText',
-    'RCTVibration',
-    'RCTWebSocket'
-  ]
+  # pod 'React', path: '../node_modules/react-native', :subspecs => [
+  #   'Core',
+  #   'RCTActionSheet',
+  #   'RCTAnimation',
+  #   'RCTGeolocation',
+  #   'RCTImage',
+  #   'RCTLinkingIOS',
+  #   'RCTNetwork',
+  #   'RCTSettings',
+  #   'RCTText',
+  #   'RCTVibration',
+  #   'RCTWebSocket',
+  # ]
 
   pod 'Yoga', path: '../node_modules/react-native/ReactCommon/yoga'
   pod 'GoogleMaps'
+  pod 'SQLite.swift', '~> 0.11.2'
 
 # when not using frameworks  we can do this instead of including the source files in our project (1/4):
 #  pod 'react-native-maps', path: '../../'

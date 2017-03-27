@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.util.Log;
 import com.facebook.common.internal.ByteStreams;
 import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -39,20 +40,22 @@ public class SqliteModule extends ReactContextBaseJavaModule {
   }
 
   /**
-   * Executes a query on a specified database. The return method is void because we return the results to React Native
+   * Executes sql on a specified database. The return method is void because we return the results to React Native
    * by emitting an event.
    *
+   * @param databaseName name of the database
    * @param sql a sql query sent from the react native app
+   * @param callback a javascript callback
    */
-  @ReactMethod public void query(String databaseName, String sql) {
+  @ReactMethod public void executeSql(String databaseName, String sql, Callback callback) {
     Log.d(LOG_TAG, String.format("Received request from JS: query %s%n with %s", databaseName, sql));
     SqliteHelper sqliteHelper = new SqliteHelper(reactContext.getApplicationContext(), databaseName);
     Cursor cursor = sqliteHelper.getReadableDatabase().rawQuery(sql, null);
     WritableMap event = Arguments.createMap();
     WritableArray results = mapResults(cursor);
     event.putInt("total", results.size());
-    event.putArray("payload", results);
-    this.reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("results", event);
+    event.putArray("results", results);
+    callback.invoke(event);
   }
 
   /**
@@ -65,6 +68,7 @@ public class SqliteModule extends ReactContextBaseJavaModule {
       dbDirectory.mkdir();
     }
     if (!new File(dbPath).exists()) {
+      Log.d(LOG_TAG, "Copying database to data directory");
       // copy db from (src/main/res/raw) directory, to the databases folder for this app
       try {
         InputStream is = context.getResources().openRawResource(R.raw.gtfs);
@@ -77,6 +81,8 @@ public class SqliteModule extends ReactContextBaseJavaModule {
       } catch (IOException e) {
         e.printStackTrace();
       }
+    } else {
+      Log.d(LOG_TAG, "Database already copied over");
     }
   }
 
