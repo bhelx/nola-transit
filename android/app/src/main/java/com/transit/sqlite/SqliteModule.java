@@ -60,6 +60,10 @@ public class SqliteModule extends ReactContextBaseJavaModule {
    */
   private void copyDatabase(Context context) {
     String dbPath = String.format("/data/data/%s/databases/%s", context.getPackageName(), GTFS_DB);
+    File dbDirectory = context.getDatabasePath(GTFS_DB).getParentFile();
+    if (!dbDirectory.exists()) {
+      dbDirectory.mkdir();
+    }
     if (!new File(dbPath).exists()) {
       // copy db from (src/main/res/raw) directory, to the databases folder for this app
       InputStream is = context.getResources().openRawResource(R.raw.gtfs);
