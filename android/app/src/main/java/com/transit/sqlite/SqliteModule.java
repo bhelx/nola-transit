@@ -66,11 +66,12 @@ public class SqliteModule extends ReactContextBaseJavaModule {
     }
     if (!new File(dbPath).exists()) {
       // copy db from (src/main/res/raw) directory, to the databases folder for this app
-      InputStream is = context.getResources().openRawResource(R.raw.gtfs);
-      FileOutputStream fos = null;
       try {
-        fos = new FileOutputStream(dbPath);
+        InputStream is = context.getResources().openRawResource(R.raw.gtfs);
+        FileOutputStream fos = new FileOutputStream(dbPath);
         ByteStreams.copy(is, fos);
+        is.close();
+        fos.close();
       } catch (FileNotFoundException e) {
         e.printStackTrace();
       } catch (IOException e) {
