@@ -97,7 +97,7 @@ export default class App extends Component {
           } else if (route.scene === 'RouteList') {
             return <RouteList navigator={navigator} />
           } else if (route.scene === 'Route') {
-            return <Route navigator={navigator} />
+            return <Route navigator={navigator} route={route.route} />
           } else if (route.scene === 'Stop') {
             return <Stop navigator={navigator} />
           }
