@@ -97,6 +97,7 @@ export default class App extends Component {
           } else if (route.scene === 'RouteList') {
             return <RouteList navigator={navigator} />
           } else if (route.scene === 'Route') {
+            //route.route= {"route_long_name":"Magazine","route_short_name":"11","route_index":5,"route_type":3,"route_color":"9B5AA5","route_text_color":"FFFFFF"};
             return <Route navigator={navigator} route={route.route} />
           } else if (route.scene === 'Stop') {
             return <Stop navigator={navigator} />
