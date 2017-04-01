@@ -102,7 +102,7 @@ export default class App extends Component {
           } else if (route.scene === 'Stop') {
             // route.stop = {"departure_time":"17:14:05","stop_id":"152","latitude":29.926115,"stop_name":"Magazine at Washington","stop_sequence":24,"longitude":-90.082509,"arrival_time":"17:14:05","stop_index":96};
             // route.direction = {"trip_headsign":"Canal Street via World War II Museum","direction_id":0,"shape_index":9};
-            return <Stop navigator={navigator} stop={route.stop} direction={route.direction} />
+            return <Stop navigator={navigator} stop={route.stop} direction={route.direction} route={route.route} />
           }
         }}
         navigationBar={
