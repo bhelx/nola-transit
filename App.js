@@ -12,8 +12,57 @@ import {
 import RouteList from './lib/scenes/RouteList';
 import Route from './lib/scenes/Route';
 import Stop from './lib/scenes/Stop';
+import Gtfs from './lib/Gtfs';
+
+const LATITUDE = 29.9301714;
+const LONGITUDE = -90.0804212;
 
 class Home extends Component {
+  constructor() {
+    super();
+    this.state = {
+      lastPosition: {
+        lat: LATITUDE,
+        lon: LONGITUDE,
+      },
+    };
+  }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log('new position', position)
+        this.setState({
+          lastPosition: {
+            lat: position.coords.latitude,
+            lon: position.coords.longitude
+          }
+        });
+      },
+      (error) => alert(error),
+      {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+    );
+
+    Gtfs.getClosestStopsAndTimes(
+      this.state.lastPosition.lon, this.state.lastPosition.lat,
+      (err, results) => {
+        console.log('closest stops and times ', results)
+      }
+    );
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.lastPosition.lat != prevState.lastPosition.lat ||
+        this.state.lastPosition.lon != prevState.lastPosition.lon) {
+      Gtfs.getClosestStopsAndTimes(
+        this.state.lastPosition.lon, this.state.lastPosition.lat,
+        (err, results) => {
+          console.log('closest stops and times ', results)
+        }
+      );
+    }
+  }
+
   render() {
     return (
       <View>
@@ -39,7 +88,7 @@ class Home extends Component {
           <Text>Stop</Text>
         </TouchableHighlight>
       </View>
-    )
+    );
   }
 }
 
@@ -164,4 +213,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
   }
 });
-
