@@ -3,10 +3,9 @@ require 'sqlite3'
 
 db = SQLite3::Database.new('./www/gtfs.sqlite')
 rows = db.execute("SELECT route_color FROM routes")
-js_file = File.open('./assets/markers.js', 'w')
+colors = rows.map(&:first).uniq
 
-colors = rows.map { |r| r.first }.uniq
-
+# Create 2 markers per color
 colors.each do |color|
   canvas = Magick::Image.new(40, 40) do |c|
     c.background_color = 'Transparent'
@@ -22,9 +21,6 @@ colors.each do |color|
 
   puts "Writing marker with color: #{color}"
   canvas.write("./assets/markers/#{color}.gif")
-  js_file.write <<-JS
-import marker_#{color} from "./markers/#{color}.gif"
-  JS
 
   canvas = Magick::Image.new(40, 40) do |c|
     c.background_color = 'Transparent'
@@ -41,7 +37,14 @@ import marker_#{color} from "./markers/#{color}.gif"
 
   puts "Writing translucent marker with color: #{color}"
   canvas.write("./assets/markers/#{color}_translucent.gif")
+end
+
+# Write the import file
+js_file = File.open('./assets/markers.js', 'w')
+
+colors.each do |color|
   js_file.write <<-JS
+import marker_#{color} from "./markers/#{color}.gif"
 import marker_#{color}_translucent from "./markers/#{color}_translucent.gif"
   JS
 end
