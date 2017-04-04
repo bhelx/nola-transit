@@ -15,7 +15,7 @@ colors.each do |color|
   circle.stroke("##{color}")
   circle.fill_opacity(0)
   circle.fill('#FFF')
-  circle.stroke_width(6)
+  circle.stroke_width(5)
   circle.ellipse(canvas.rows/2, canvas.columns/2, 15, 15, 0, 360)
   circle.draw(canvas)
 
@@ -31,7 +31,7 @@ colors.each do |color|
   circle.stroke_opacity(0.5)
   circle.fill_opacity(0.5)
   circle.fill('#FFF')
-  circle.stroke_width(6)
+  circle.stroke_width(5)
   circle.ellipse(canvas.rows/2, canvas.columns/2, 15, 15, 0, 360)
   circle.draw(canvas)
 
