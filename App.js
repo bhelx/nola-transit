@@ -13,6 +13,8 @@ import RouteList from './lib/scenes/RouteList';
 import Route from './lib/scenes/Route';
 import Stop from './lib/scenes/Stop';
 
+import NavBar from './lib/components/NavBar.js';
+
 class Home extends Component {
   render() {
     return (
@@ -43,48 +45,6 @@ class Home extends Component {
   }
 }
 
-const NavigationBarRouteMapper = {
-  LeftButton: function(route, navigator, index, navState) {
-    if (route.scene === 'Home') {
-      return null;
-    }
-    var previousRoute = navState.routeStack[index - 1];
-    return (
-      <TouchableOpacity
-        onPress={navigator.pop}
-        style={styles.navBarLeftButton}>
-        <Text style={[styles.navBarText, styles.navBarButtonText]}>
-          &lt; {previousRoute.title}
-        </Text>
-      </TouchableOpacity>
-    );
-  },
-
-  RightButton: function(route, navigator, index, navState) {
-    return null;
-  },
-
-  Title: function(route, navigator, index, navState) {
-    return (
-      <Text style={[styles.navBarText, styles.navBarTitleText]}>
-        {route.title}
-      </Text>
-    );
-  },
-};
-
-class NavButton extends Component {
-  render() {
-    return (
-      <TouchableHighlight
-        style={styles.button}
-        onPress={this.props.onPress}>
-        <Text style={styles.buttonText}>{this.props.text}</Text>
-      </TouchableHighlight>
-    );
-  }
-}
-
 export default class App extends Component {
   render() {
     return (
@@ -107,7 +67,7 @@ export default class App extends Component {
         }}
         navigationBar={
           <Navigator.NavigationBar
-            routeMapper={NavigationBarRouteMapper}
+            routeMapper={NavBar}
             style={styles.navBar}
          />
         }
