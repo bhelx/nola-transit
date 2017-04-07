@@ -14,8 +14,8 @@ import Route from './lib/scenes/Route';
 import Stop from './lib/scenes/Stop';
 import Gtfs from './lib/Gtfs';
 
-const LATITUDE = 29.9301714;
-const LONGITUDE = -90.0804212;
+const LATITUDE = 29.926522;
+const LONGITUDE = -90.086421;
 
 class Home extends Component {
   constructor() {
@@ -46,8 +46,8 @@ class Home extends Component {
     Gtfs.getClosestStopsAndTimes(
       this.state.lastPosition.lon, this.state.lastPosition.lat,
       (err, results) => {
-        console.log('closest stops and times ', results)
-      }
+        console.log('closest stops', results[0])
+        this.props.closestStop = results[0];      }
     );
   }
 
@@ -57,7 +57,8 @@ class Home extends Component {
       Gtfs.getClosestStopsAndTimes(
         this.state.lastPosition.lon, this.state.lastPosition.lat,
         (err, results) => {
-          console.log('closest stops and times ', results)
+          console.log('closest stop', results[0])
+          this.props.closestStop = results[0];
         }
       );
     }
@@ -88,6 +89,7 @@ class Home extends Component {
           <Text>Stop</Text>
         </TouchableHighlight>
       </View>
+      <Text>{this.props.closestStop}</Text>
     );
   }
 }
