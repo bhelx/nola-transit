@@ -15,42 +15,12 @@ import Stop from './lib/scenes/Stop';
 
 import NavBar from './lib/components/NavBar.js';
 
-class Home extends Component {
-  render() {
-    return (
-      <View>
-        <TouchableHighlight
-          style={styles.homeButton}
-          onPress={() => {
-            this.props.navigator.push({scene: 'RouteList', title: 'Routes'});
-          }}>
-          <Text>Routes</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={styles.homeButton}
-          onPress={() => {
-            this.props.navigator.push({scene: 'Route', title: 'Route'});
-          }}>
-          <Text>Route</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={styles.homeButton}
-          onPress={() => {
-            this.props.navigator.push({scene: 'Stop', title: 'Schedule'});
-          }}>
-          <Text>Stop</Text>
-        </TouchableHighlight>
-      </View>
-    )
-  }
-}
-
 export default class App extends Component {
   render() {
     return (
       <Navigator
         style={styles.container}
-        initialRoute={{scene: 'Home', title: 'Home'}}
+        initialRoute={{scene: 'RouteList', title: 'Routes'}}
         renderScene={(route, navigator) => {
           if (route.scene === 'Home') {
             return <Home navigator={navigator} />
@@ -75,6 +45,37 @@ export default class App extends Component {
     );
   }
 }
+
+// class Home extends Component {
+//   render() {
+//     return (
+//       <View>
+//         <TouchableHighlight
+//           style={styles.homeButton}
+//           onPress={() => {
+//             this.props.navigator.push({scene: 'RouteList', title: 'Routes'});
+//           }}>
+//           <Text>Routes</Text>
+//         </TouchableHighlight>
+//         <TouchableHighlight
+//           style={styles.homeButton}
+//           onPress={() => {
+//             this.props.navigator.push({scene: 'Route', title: 'Route'});
+//           }}>
+//           <Text>Route</Text>
+//         </TouchableHighlight>
+//         <TouchableHighlight
+//           style={styles.homeButton}
+//           onPress={() => {
+//             this.props.navigator.push({scene: 'Stop', title: 'Schedule'});
+//           }}>
+//           <Text>Stop</Text>
+//         </TouchableHighlight>
+//       </View>
+//     )
+//   }
+// }
+//
 
 const styles = StyleSheet.create({
   container: {
