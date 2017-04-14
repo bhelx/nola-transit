@@ -12,6 +12,7 @@ import {
 import RouteList from './lib/scenes/RouteList';
 import Route from './lib/scenes/Route';
 import Stop from './lib/scenes/Stop';
+import Home from './lib/scenes/Home';
 
 import NavBar from './lib/components/NavBar.js';
 
@@ -20,7 +21,7 @@ export default class App extends Component {
     return (
       <Navigator
         style={styles.container}
-        initialRoute={{scene: 'RouteList', title: 'Routes'}}
+        initialRoute={{scene: 'Home', title: 'Home'}}
         renderScene={(route, navigator) => {
           if (route.scene === 'Home') {
             return <Home navigator={navigator} />
@@ -45,37 +46,6 @@ export default class App extends Component {
     );
   }
 }
-
-// class Home extends Component {
-//   render() {
-//     return (
-//       <View>
-//         <TouchableHighlight
-//           style={styles.homeButton}
-//           onPress={() => {
-//             this.props.navigator.push({scene: 'RouteList', title: 'Routes'});
-//           }}>
-//           <Text>Routes</Text>
-//         </TouchableHighlight>
-//         <TouchableHighlight
-//           style={styles.homeButton}
-//           onPress={() => {
-//             this.props.navigator.push({scene: 'Route', title: 'Route'});
-//           }}>
-//           <Text>Route</Text>
-//         </TouchableHighlight>
-//         <TouchableHighlight
-//           style={styles.homeButton}
-//           onPress={() => {
-//             this.props.navigator.push({scene: 'Stop', title: 'Schedule'});
-//           }}>
-//           <Text>Stop</Text>
-//         </TouchableHighlight>
-//       </View>
-//     )
-//   }
-// }
-//
 
 const styles = StyleSheet.create({
   container: {
