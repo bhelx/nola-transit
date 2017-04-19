@@ -28,11 +28,8 @@ export default class App extends Component {
           } else if (route.scene === 'RouteList') {
             return <RouteList navigator={navigator} />
           } else if (route.scene === 'Route') {
-            //route.route= {"route_long_name":"Magazine","route_short_name":"11","route_index":5,"route_type":3,"route_color":"9B5AA5","route_text_color":"FFFFFF"};
             return <Route navigator={navigator} route={route.route} />
           } else if (route.scene === 'Stop') {
-            // route.stop = {"departure_time":"17:14:05","stop_id":"152","latitude":29.926115,"stop_name":"Magazine at Washington","stop_sequence":24,"longitude":-90.082509,"arrival_time":"17:14:05","stop_index":96};
-            // route.direction = {"trip_headsign":"Canal Street via World War II Museum","direction_id":0,"shape_index":9};
             return <Stop navigator={navigator} stop={route.stop} direction={route.direction} route={route.route} />
           }
         }}
@@ -40,7 +37,7 @@ export default class App extends Component {
           <Navigator.NavigationBar
             routeMapper={NavBar}
             style={styles.navBar}
-         />
+          />
         }
       />
     );
@@ -95,4 +92,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
   }
 });
-
