@@ -110,9 +110,6 @@ public class SqliteModule extends ReactContextBaseJavaModule {
           case Cursor.FIELD_TYPE_STRING:
             row.putString(columnName, cursor.getString(idx));
             break;
-          case Cursor.FIELD_TYPE_BLOB:
-            row.putInt(columnName, cursor.getInt(idx));
-            break;
         }
       }
       rows.pushMap(row);
