@@ -95,8 +95,25 @@ public class SqliteModule extends ReactContextBaseJavaModule {
     while (cursor.moveToNext()) {
       WritableMap row = Arguments.createMap();
       for (String columnName : cursor.getColumnNames()) {
-        String columnValue = cursor.getString(cursor.getColumnIndex(columnName));
-        row.putString(columnName, columnValue);
+        int idx = cursor.getColumnIndex(columnName);
+        int colType = cursor.getType(idx);
+        switch (colType) {
+          case Cursor.FIELD_TYPE_NULL:
+            row.putNull(columnName);
+            break;
+          case Cursor.FIELD_TYPE_INTEGER:
+            row.putInt(columnName, cursor.getInt(idx));
+            break;
+          case Cursor.FIELD_TYPE_FLOAT:
+            row.putDouble(columnName, cursor.getDouble(idx));
+            break;
+          case Cursor.FIELD_TYPE_STRING:
+            row.putString(columnName, cursor.getString(idx));
+            break;
+          case Cursor.FIELD_TYPE_BLOB:
+            row.putInt(columnName, cursor.getInt(idx));
+            break;
+        }
       }
       rows.pushMap(row);
     }
