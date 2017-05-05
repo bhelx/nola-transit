@@ -28,6 +28,7 @@ export default class App extends Component {
           } else if (route.scene === 'RouteList') {
             return <RouteList navigator={navigator} />
           } else if (route.scene === 'Route') {
+            //route = {route: {"route_long_name":"M.L.King","route_short_name":"28","route_index":10,"route_type":3,"route_color":"D60C8C","route_text_color":"000000"}}
             return <Route navigator={navigator} route={route.route} />
           } else if (route.scene === 'Stop') {
             return <Stop navigator={navigator} stop={route.stop} direction={route.direction} route={route.route} />
