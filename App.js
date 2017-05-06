@@ -6,44 +6,19 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   Platform,
-  Navigator,
 } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
+import Home from './lib/scenes/Home';
 import RouteList from './lib/scenes/RouteList';
 import Route from './lib/scenes/Route';
 import Stop from './lib/scenes/Stop';
-import Home from './lib/scenes/Home';
 
-import NavBar from './lib/components/NavBar.js';
-
-export default class App extends Component {
-  render() {
-    return (
-      <Navigator
-        style={styles.container}
-        initialRoute={{scene: 'Home', title: 'Home'}}
-        renderScene={(route, navigator) => {
-          if (route.scene === 'Home') {
-            return <Home navigator={navigator} />
-          } else if (route.scene === 'RouteList') {
-            return <RouteList navigator={navigator} />
-          } else if (route.scene === 'Route') {
-            //route = {route: {"route_long_name":"M.L.King","route_short_name":"28","route_index":10,"route_type":3,"route_color":"D60C8C","route_text_color":"000000"}}
-            return <Route navigator={navigator} route={route.route} />
-          } else if (route.scene === 'Stop') {
-            return <Stop navigator={navigator} stop={route.stop} direction={route.direction} route={route.route} />
-          }
-        }}
-        navigationBar={
-          <Navigator.NavigationBar
-            routeMapper={NavBar}
-            style={styles.navBar}
-          />
-        }
-      />
-    );
-  }
-}
+const App = StackNavigator({
+  Home: { screen: Home },
+  Route: { screen: Route },
+  Stop: { screen: Stop },
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -91,5 +66,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFF',
-  }
+  },
 });
+
+export default App;
