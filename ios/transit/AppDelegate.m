@@ -19,6 +19,17 @@
 {
   NSURL *jsCodeLocation;
 
+  
+  NSFileManager *fileManager = [NSFileManager defaultManager];
+  NSError *error;
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString *documentsDirectory = [paths objectAtIndex:0];
+  
+  NSString *txtPath = [documentsDirectory stringByAppendingPathComponent:@"gtfs.sqlite"];
+  
+  NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"www/gtfs" ofType:@"sqlite"];
+  [fileManager copyItemAtPath:resourcePath toPath:txtPath error:&error];
+  
   [GMSServices provideAPIKey:@"AIzaSyC1e0DWpUMGm6azrprIHomo4diBm3ei9Uw"];
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
