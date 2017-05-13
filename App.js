@@ -9,10 +9,9 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import Home from './lib/scenes/Home';
-import RouteList from './lib/scenes/RouteList';
-import Route from './lib/scenes/Route';
-import Stop from './lib/scenes/Stop';
+import Home from './lib/Home';
+import Route from './lib/Route';
+import Stop from './lib/Stop';
 
 const App = StackNavigator({
   Home: { screen: Home },
