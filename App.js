@@ -23,14 +23,12 @@ const App = StackNavigator({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //backgroundColor: '#F5FCFF',
     backgroundColor: '#fff',
     paddingTop: 65,
   },
   scene: {
     flex: 1,
     paddingTop: 20,
-    //backgroundColor: '#EAEAEA',
   },
   button: {
     padding: 15,
