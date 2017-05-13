@@ -1,3 +1,8 @@
+/**
+ * Top-level App file. Sets up the screens and the react-native app.
+ *
+ * @flow
+ */
 import React, { Component } from 'react';
 import {
   StyleSheet,
