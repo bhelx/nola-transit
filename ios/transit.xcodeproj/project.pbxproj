@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -1397,7 +1398,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = im.simst.nolatransit;
+				PRODUCT_BUNDLE_IDENTIFIER = T6L5A7S6ZV.im.simst.transit;
 				PRODUCT_NAME = transit;
 				SWIFT_OBJC_BRIDGING_HEADER = "transit-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1429,7 +1430,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = im.simst.nolatransit;
+				PRODUCT_BUNDLE_IDENTIFIER = T6L5A7S6ZV.im.simst.transit;
 				PRODUCT_NAME = transit;
 				SWIFT_OBJC_BRIDGING_HEADER = "transit-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
