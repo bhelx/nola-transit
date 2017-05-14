@@ -12,7 +12,6 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
-import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.transit.R;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -96,8 +95,22 @@ public class SqliteModule extends ReactContextBaseJavaModule {
     while (cursor.moveToNext()) {
       WritableMap row = Arguments.createMap();
       for (String columnName : cursor.getColumnNames()) {
-        String columnValue = cursor.getString(cursor.getColumnIndex(columnName));
-        row.putString(columnName, columnValue);
+        int idx = cursor.getColumnIndex(columnName);
+        int colType = cursor.getType(idx);
+        switch (colType) {
+          case Cursor.FIELD_TYPE_NULL:
+            row.putNull(columnName);
+            break;
+          case Cursor.FIELD_TYPE_INTEGER:
+            row.putInt(columnName, cursor.getInt(idx));
+            break;
+          case Cursor.FIELD_TYPE_FLOAT:
+            row.putDouble(columnName, cursor.getDouble(idx));
+            break;
+          case Cursor.FIELD_TYPE_STRING:
+            row.putString(columnName, cursor.getString(idx));
+            break;
+        }
       }
       rows.pushMap(row);
     }
