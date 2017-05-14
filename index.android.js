@@ -1,6 +1,5 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Android Mount
  * @flow
  */
 import { AppRegistry } from 'react-native';
