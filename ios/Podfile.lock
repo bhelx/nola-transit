@@ -7,7 +7,7 @@ PODS:
   - SQLite.swift (0.11.2):
     - SQLite.swift/standard (= 0.11.2)
   - SQLite.swift/standard (0.11.2)
-  - Yoga (0.44.2.React)
+  - Yoga (0.42.0.React)
 
 DEPENDENCIES:
   - GoogleMaps
@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
   SQLite.swift: 670c3e9e0a806bbfd56a3de5d530768dc0e6fe7c
-  Yoga: 735d941f871ac6c4853334c164c424e013a79a17
+  Yoga: 4183cc70cae189d73f996b1e40c3078aca9f96ef
 
 PODFILE CHECKSUM: 63502f4a550cb4c3a104a82e8f2e9472be4b5e76
 
