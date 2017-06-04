@@ -1,4 +1,4 @@
-# NOLA Transit (name pending)
+# Where Ya Ride (name pending)
 
 The purpose of this project is to build a free, open source app for all things [NORTA](http://norta.com) (**N**ew **O**rleans **R**egional **T**ransit **A**uthority).
 
