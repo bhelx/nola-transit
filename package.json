@@ -10,6 +10,7 @@
     "async": "^2.2.0",
     "react": "15.4.2",
     "react-native": "0.42.0",
+    "react-native-fabric": "^0.4.1",
     "react-native-maps": "^0.13.0",
     "react-native-modal": "^2.4.0",
     "react-native-push-notification": "^3.0.0",

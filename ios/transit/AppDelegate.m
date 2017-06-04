@@ -13,6 +13,9 @@
 #import <React/RCTRootView.h>
 #import "RCTPushNotificationManager.h"
 
+// Fabric
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @import GoogleMaps;
 @implementation AppDelegate
@@ -48,6 +51,9 @@
                                                    launchOptions:launchOptions];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
+  // Fabric stuff and Fabric logging
+  [Fabric with:@[[Crashlytics class]]];
+  
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
@@ -84,5 +90,46 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
   NSLog(@"push-notification received: %@", notification);
   [RCTPushNotificationManager didReceiveLocalNotification:notification];
 }
+
+// Fabric logging function
+//RCTLogFunction CrashlyticsReactLogFunction = ^(
+//                                               RCTLogLevel level,
+//                                               __unused RCTLogSource source,
+//                                               NSString *fileName,
+//                                               NSNumber *lineNumber,
+//                                               NSString *message
+//                                               )
+//{
+//  NSString *log = RCTFormatLog([NSDate date], level, fileName, lineNumber, message);
+//  
+//#ifdef DEBUG
+//  fprintf(stderr, "%s\n", log.UTF8String);
+//  fflush(stderr);
+//#else
+//  CLS_LOG(@"REACT LOG: %s", log.UTF8String);
+//#endif
+//  
+//  int aslLevel;
+//  switch(level) {
+//    case RCTLogLevelTrace:
+//      aslLevel = ASL_LEVEL_DEBUG;
+//      break;
+//    case RCTLogLevelInfo:
+//      aslLevel = ASL_LEVEL_NOTICE;
+//      break;
+//    case RCTLogLevelWarning:
+//      aslLevel = ASL_LEVEL_WARNING;
+//      break;
+//    case RCTLogLevelError:
+//      aslLevel = ASL_LEVEL_ERR;
+//      break;
+//    case RCTLogLevelFatal:
+//      aslLevel = ASL_LEVEL_CRIT;
+//      break;
+//  }
+//  asl_log(NULL, NULL, aslLevel, "%s", message.UTF8String);
+//  
+//  
+//};
 
 @end

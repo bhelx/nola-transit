@@ -22,6 +22,8 @@ target 'transit' do
   pod 'Yoga', path: '../node_modules/react-native/ReactCommon/yoga'
   pod 'GoogleMaps'
   pod 'SQLite.swift', '~> 0.11.2'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 # when not using frameworks  we can do this instead of including the source files in our project (1/4):
 #  pod 'react-native-maps', path: '../../'
