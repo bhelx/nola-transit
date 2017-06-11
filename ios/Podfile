@@ -20,7 +20,7 @@ target 'transit' do
   # ]
 
   pod 'Yoga', path: '../node_modules/react-native/ReactCommon/yoga'
-  pod 'GoogleMaps'
+  pod 'GoogleMaps', '~> 2.3.0'
   pod 'SQLite.swift', '~> 0.11.2'
   pod 'Fabric'
   pod 'Crashlytics'

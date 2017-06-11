@@ -2,20 +2,20 @@ PODS:
   - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
-  - GoogleMaps (2.2.0):
-    - GoogleMaps/Maps (= 2.2.0)
-  - GoogleMaps/Base (2.2.0)
-  - GoogleMaps/Maps (2.2.0):
+  - GoogleMaps (2.3.0):
+    - GoogleMaps/Maps (= 2.3.0)
+  - GoogleMaps/Base (2.3.0)
+  - GoogleMaps/Maps (2.3.0):
     - GoogleMaps/Base
   - SQLite.swift (0.11.2):
     - SQLite.swift/standard (= 0.11.2)
   - SQLite.swift/standard (0.11.2)
-  - Yoga (0.42.0.React)
+  - Yoga (0.44.2.React)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
-  - GoogleMaps
+  - GoogleMaps (~> 2.3.0)
   - SQLite.swift (~> 0.11.2)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -26,10 +26,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
+  GoogleMaps: 340a6a0bebd17c2db8abcd3921976c7c53c86cb8
   SQLite.swift: 670c3e9e0a806bbfd56a3de5d530768dc0e6fe7c
-  Yoga: 4183cc70cae189d73f996b1e40c3078aca9f96ef
+  Yoga: 735d941f871ac6c4853334c164c424e013a79a17
 
-PODFILE CHECKSUM: 56d3af87b8de4219b169c5ba1e4a5d1385bf1776
+PODFILE CHECKSUM: 4f72aba90d027d8602835e69b132bbafb84cdf82
 
 COCOAPODS: 1.2.0
