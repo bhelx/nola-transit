@@ -13,12 +13,15 @@ import {
   Platform,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import { enhance } from './lib/navigation_experimental';
 
 import Home from './lib/Home';
 import Route from './lib/Route';
 import Stop from './lib/Stop';
 
-const App = StackNavigator({
+// This enhances the StackNavigator with
+// these experimental APIs https://github.com/satya164/react-navigation-addons
+const App = enhance(StackNavigator)({
   Home: { screen: Home },
   Route: { screen: Route },
   Stop: { screen: Stop },
