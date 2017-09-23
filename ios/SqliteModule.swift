@@ -14,6 +14,8 @@ class SqliteModule: NSObject {
     debugPrint("executeSql [" + database + "] " + query)
     copyDatabase()
 
+    let start = DispatchTime.now()
+    
     do {
       let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
       let db = try Connection(documentsPath + "/" + database)
@@ -26,6 +28,10 @@ class SqliteModule: NSObject {
         }
         rows.append(obj)
       }
+      let end = DispatchTime.now()
+      let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
+      let timeInterval = Double(nanoTime) / 1_000_000_000
+      debugPrint("Time to evaluate SQL \(timeInterval) seconds");
       callback([["results": rows]])
     } catch {
       debugPrint("error")
