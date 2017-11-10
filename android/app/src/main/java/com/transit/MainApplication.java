@@ -2,8 +2,10 @@ package com.transit;
 
 import android.app.Application;
 
+import com.crashlytics.android.Crashlytics;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.airbnb.android.react.maps.MapsPackage;
+import com.facebook.react.BuildConfig;
 import com.facebook.react.ReactApplication;
 import com.joshblour.reactnativepermissions.ReactNativePermissionsPackage;
 import com.smixx.fabric.FabricPackage;
@@ -15,6 +17,8 @@ import com.oblador.vectoricons.VectorIconsPackage;
 import com.transit.sqlite.SqlitePackage;
 import java.util.Arrays;
 import java.util.List;
+
+import io.fabric.sdk.android.Fabric;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -28,9 +32,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new ReactNativePermissionsPackage(),
-            new FabricPackage(),
-            new ReactNativePushNotificationPackage(),
+          new ReactNativePermissionsPackage(),
+          new FabricPackage(),
+          new ReactNativePushNotificationPackage(),
           new VectorIconsPackage(),
           new MapsPackage(),
           new SqlitePackage()
@@ -46,6 +50,7 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    Fabric.with(this, new Crashlytics());
     SoLoader.init(this, /* native exopackage */ false);
   }
 }
