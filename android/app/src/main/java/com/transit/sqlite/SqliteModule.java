@@ -47,9 +47,13 @@ public class SqliteModule extends ReactContextBaseJavaModule {
    * @param callback a javascript callback
    */
   @ReactMethod public void executeSql(String databaseName, String sql, Callback callback) {
-    Log.d(LOG_TAG, String.format("Received request from JS: query %s%n with %s", databaseName, sql));
+    Log.d(LOG_TAG, String.format("Received request from JS: query db %s with %s", databaseName, sql));
     SqliteHelper sqliteHelper = new SqliteHelper(reactContext.getApplicationContext(), databaseName);
+    long startTime = System.currentTimeMillis();
     Cursor cursor = sqliteHelper.getReadableDatabase().rawQuery(sql, null);
+    long endTime = System.currentTimeMillis();
+    double elaspsedTime =  (double) (endTime - startTime) / 1000;
+    Log.d(LOG_TAG,String.format("Request took %f seconds", elaspsedTime));
     WritableMap event = Arguments.createMap();
     WritableArray results = mapResults(cursor);
     event.putInt("total", results.size());
