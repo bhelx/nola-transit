@@ -32,6 +32,8 @@ public class SqliteModule extends ReactContextBaseJavaModule {
   private static final String GTFS_DB = "gtfs.sqlite";
   private final ReactContext reactContext;
 
+  @Override public String getName() { return "Sqlite"; }
+
   public SqliteModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
@@ -47,17 +49,18 @@ public class SqliteModule extends ReactContextBaseJavaModule {
    * @param callback a javascript callback
    */
   @ReactMethod public void executeSql(String databaseName, String sql, Callback callback) {
-    Log.d(LOG_TAG, String.format("Received request from JS: query db %s with %s", databaseName, sql));
+    Log.v(LOG_TAG, String.format("Received request from JS: query db %s with %s", databaseName, sql));
     SqliteHelper sqliteHelper = new SqliteHelper(reactContext.getApplicationContext(), databaseName);
     long startTime = System.currentTimeMillis();
     Cursor cursor = sqliteHelper.getReadableDatabase().rawQuery(sql, null);
     long endTime = System.currentTimeMillis();
-    double elaspsedTime =  (double) (endTime - startTime) / 1000;
-    Log.d(LOG_TAG,String.format("Request took %f seconds", elaspsedTime));
+    double elapsedTime =  (double) (endTime - startTime) / 1000;
+    Log.v(LOG_TAG, String.format("Request took %f seconds", elapsedTime));
     WritableMap event = Arguments.createMap();
     WritableArray results = mapResults(cursor);
     event.putInt("total", results.size());
     event.putArray("results", results);
+    Log.v(LOG_TAG, String.format("Sending event to JS: ", event));
     callback.invoke(event);
   }
 
@@ -122,7 +125,4 @@ public class SqliteModule extends ReactContextBaseJavaModule {
     return rows;
   }
 
-  @Override public String getName() {
-    return "Sqlite";
-  }
 }
