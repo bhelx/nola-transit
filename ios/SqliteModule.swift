@@ -40,6 +40,7 @@ class SqliteModule: NSObject {
   }
   
   func copyDatabase() {
+    let start = DispatchTime.now()
     let bundlePath = Bundle.main.path(forResource: "www/gtfs", ofType: ".sqlite")
     let destPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
     let fileManager = FileManager.default
@@ -47,9 +48,17 @@ class SqliteModule: NSObject {
     if fileManager.fileExists(atPath: fullDestPath.path){
       print("Database file is exist")
       print(fileManager.fileExists(atPath: bundlePath!))
+      let end = DispatchTime.now()
+      let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
+      let timeInterval = Double(nanoTime) / 1_000_000_000
+      debugPrint("Time to check for existing database  \(timeInterval) seconds");
     }else{
       do{
         try fileManager.copyItem(atPath: bundlePath!, toPath: fullDestPath.path)
+        let end = DispatchTime.now()
+        let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
+        let timeInterval = Double(nanoTime) / 1_000_000_000
+        debugPrint("Time to copy over database  \(timeInterval) seconds");
       }catch{
         print("\n",error)
       }
