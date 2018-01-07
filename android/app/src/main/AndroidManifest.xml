@@ -9,7 +9,7 @@
 
     <uses-sdk
         android:minSdkVersion="16"
-        android:targetSdkVersion="22" />
+        android:targetSdkVersion="23" />
 
     <application
       android:name=".MainApplication"
@@ -21,6 +21,10 @@
       <meta-data
         android:name="com.google.android.geo.API_KEY"
         android:value="AIzaSyC1e0DWpUMGm6azrprIHomo4diBm3ei9Uw" />
+
+    <meta-data
+        android:name="io.fabric.ApiKey"
+        android:value="4799fb1451f99546a3db18709f8a106dd9116ff2" />
 
       <activity
         android:name=".MainActivity"
