@@ -18,7 +18,7 @@
     "react-native-permissions": "1.0.1",
     "react-native-push-notification": "^3.0.0",
     "react-native-vector-icons": "^4.0.0",
-    "react-navigation": "^1.0.0-beta.9",
+    "react-navigation": "^1.0.0-beta.26",
     "react-swipeable-views-native": "^0.12.0",
     "shallowequal": "^1.0.1",
     "tinycolor2": "^1.4.1"

@@ -10,7 +10,7 @@ import {
   View,
   TouchableHighlight,
   TouchableOpacity,
-  Platform,
+  Platform
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { enhance } from './lib/navigation_experimental';
