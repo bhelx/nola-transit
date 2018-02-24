@@ -43,7 +43,7 @@
   // google maps
   [GMSServices provideAPIKey:@"AIzaSyC1e0DWpUMGm6azrprIHomo4diBm3ei9Uw"];
 
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"transit"
