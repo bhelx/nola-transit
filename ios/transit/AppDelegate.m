@@ -41,7 +41,8 @@
   }
   
   // google maps
-  [GMSServices provideAPIKey:@"AIzaSyC1e0DWpUMGm6azrprIHomo4diBm3ei9Uw"];
+  // there was a key here but it's expired so don't bother :)
+  [GMSServices provideAPIKey:@"putkeyhere"];
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
